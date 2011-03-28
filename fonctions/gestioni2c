@@ -1,0 +1,11 @@
+/*
+deux S/P qui gèrent l'I2C
+-lecture
+-écriture
+
+
+-lectureI2C: transmission de l'adresse à lire, de l'adresse I2C
+		-> retourne l'octet ?
+
+-écritureI2C: transmission adresse à lire, adresse i2c, données à écrire.
+		-> retourne rien ?
