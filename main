@@ -2,6 +2,13 @@
 #define rafraichir_afficheur 1
 #define eteindre_afficheur 0
 
+
+/* *** INITIALISATION DES VARIABLES ***
+*/
+int afficheur1,afficheur2,afficheur3,afficheur4,afficheur5,afficheur6,afficheur7,afficheur8;
+
+
+
 main(void)
 {
 
