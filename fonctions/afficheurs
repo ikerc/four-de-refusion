@@ -1,0 +1,4 @@
+/*
+une ou plusieurs variables stockent la mémoire à afficher.
+l'appel de cette fonction provoque un reload de tous les afficheurs.
+*/
