@@ -1,0 +1,14 @@
+#define température 0b0000001
+#define rafraichir_afficheur 1
+#define eteindre_afficheur 0
+
+main(void)
+{
+
+afficheurs(rafraichir_afficheur)
+acquisition(température)
+convertion(acquisition)  // ou affichage(acquisition)
+
+
+afficheur(eteindre_afficheur)
+}
