@@ -4,3 +4,4 @@ acquisition
 paramètres d'entrée : configuration des bits de registre.
 sortie : 0 à 4096
 */
+int adcon0 = 0b00000101 // 2 fist bits for Fosc/4 [1st bit of temperature too] -_- 3 bits for channel selection 000 = AN0 -_- set bit to 1 for start Conversion -_- last bit is for power UP CAN
