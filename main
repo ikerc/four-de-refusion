@@ -12,10 +12,15 @@ int afficheur1,afficheur2,afficheur3,afficheur4,afficheur5,afficheur6,afficheur7
 main(void)
 {
 
+autotest() //fonction au démarrage qui permets de tester tous les digits.
 afficheurs(rafraichir_afficheur)
-acquisition(température)
-convertion(acquisition)  // ou affichage(acquisition)
+afficheur1++;
 
-
+acquisition(température)  
+afficheurs(rafraichir_afficheur) // affichage de la température de la pièce.
+// ajouter un delay d'une seconde
 afficheur(eteindre_afficheur)
+    while(1)
+    {
+    }
 }
