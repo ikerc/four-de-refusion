@@ -22,5 +22,6 @@ afficheurs(rafraichir_afficheur) // affichage de la température de la pièce.
 afficheur(eteindre_afficheur)
     while(1)
     {
+// momo
     }
 }
