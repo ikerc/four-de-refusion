@@ -1,0 +1,6 @@
+/*
+acquisition
+
+paramètres d'entrée : configuration des bits de registre.
+sortie : 0 à 4096
+*/
