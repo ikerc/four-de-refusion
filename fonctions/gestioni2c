@@ -9,3 +9,56 @@ deux S/P qui gèrent l'I2C
 
 -écritureI2C: transmission adresse à lire, adresse i2c, données à écrire.
 		-> retourne rien ?
+*/
+
+
+/**************************************************** LIB I2C
+*****************************************************************/
+// librairie pour module i2c sur PIC18
+// C.D 02/2003
+// init_i2c(); initialise port i2c en mode maitre
+// lit_i2c(adresse,registre); retourne l'octet de l'adresse i2c
+
+#include <p18f452.h>
+
+void ack(void)					// attend acknowledge (I2C) de l'esclave
+{
+while(SSPSTATbits.R_W);			// attend fin de transmission
+while (SSPCON2bits.ACKSTAT);	// attend fin ACK esclave
+}
+
+signed char lit_i2c(unsigned char adresse, unsigned char registre) //retourne le contenu du registre cmd dans TC74
+{
+signed char t;
+ SSPCON2bits.SEN=1;			// START
+ while (SSPCON2bits.SEN);
+ SSPBUF=adresse<<1; 		// adresse ecriture 
+ ack();				
+ SSPBUF=registre;				// adresse registre
+ ack();
+ SSPCON2bits.RSEN=1; 		// RESTART
+ while (SSPCON2bits.RSEN);
+ SSPBUF=(adresse<<1)|0b00000001; 		// adresse lecture 
+ ack();
+ SSPCON2bits.RCEN=1; 		// passe ne mode lecture d'un octet
+ while (SSPCON2bits.RCEN);  // attend reception terminée
+ t=SSPBUF;					// mémorise température
+ SSPCON2bits.ACKDT=1;		// NON-ACK
+ SSPCON2bits.ACKEN=1; 
+ while(SSPCON2bits.ACKEN);
+ SSPCON2bits.PEN=1;			// STOP
+ while(SSPCON2bits.PEN);
+ return (t); 
+}
+
+void init_i2c(void)
+{
+	DDRCbits.RC3 = 1;         	// SCL (PORTC,3) en entrée
+ 	DDRCbits.RC4 = 1;         	// SDA (PORTC,4) en entrée
+ 	SSPCON1=0b00101000;		// WCOL SSPOV SSPEN CKP SSPM3:SSPM0
+ 							// efface WCOL et SSPOV, active I2C, I2C mode maitre horloge=FOSC/(4*(SSPADD+1))			
+ 	SSPSTATbits.SMP=1;			// slew rate inhibé (f<400Khz)
+ 	SSPADD=5;					// horloge = 4Mhz / 24 = 166,66 KHz
+}
+
+
