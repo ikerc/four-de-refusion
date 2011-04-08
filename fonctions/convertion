@@ -7,15 +7,28 @@ pourrait s’appeler affichage(acquisition)
 int conversion(int temperature)
 {
 #define quantum 4.883e-3
+#define afficheur_centaines afficheurx
+#define afficheur_dizaines afficheurx
+#define afficheur_unite afficheurx
+
+int rtemp;
 
 if (temperature == 1)
     {
     adcon0=0b00000001;
     adcon1=0b01001110;  // first bit 1 for Right justified -_- 2d bit 1 for Fosc/4 -_-4 last bits for AN0
+
     Delay10TCYx(10);				// attente
+
     ADCON0bits.GO=1;			// lancement conversion 
     while(ADCON0bits.GO);			// attente conversion
-    afficheurx=ADRES*quantum;
+
+    rtemp=(float)ADRES*quantum;
+
+    afficheur_centaines=rtemp%100;
+    afficheur_dizaines=rtemp%10;
+    afficheur_unites=rtemp%1;
+
     return 0;
     }else{
     adcon0=0x00;
