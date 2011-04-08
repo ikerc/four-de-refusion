@@ -1,7 +1,8 @@
 #include <p18f452i.h>
 #include <delays.h>
 
-#define temperature 1 
+#define temperature 1
+#define eteindre 0
 #define rafraichir_afficheur 1
 #define eteindre_afficheur 0
 #define max_DIN
@@ -23,7 +24,7 @@ autotest() //fonction au démarrage qui permets de tester tous les digits. (set 
 afficheurs(rafraichir_afficheur)
 // ajouter un delay d'une seconde
 
-acquisition(température)         // affichage de la température de la pièce.
+conversion(temperature)         // affichage de la température de la pièce.
 afficheurs(rafraichir_afficheur) // affichage de la température de la pièce.
 // ajouter un delay d'une seconde
 afficheur(eteindre_afficheur)
@@ -33,3 +34,10 @@ afficheur(eteindre_afficheur)
     {
     }
 }
+
+/*
+afficheur(eteindre_afficheur)
+afficheur(rafraichir afficheur)
+conversion(temperature)
+conversion(eteindre)
+*/
