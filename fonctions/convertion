@@ -1,5 +1,5 @@
 /*
-converti avec pour paramètre l'entrée de acquisition en affichage.
+converti avec pour paramètre l'entrée d'acquisition en affichage.
 variable de sortie globale : afficheur(celui qui affiche la température)
 pourrait s’appeler affichage(acquisition)
 */
