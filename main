@@ -7,7 +7,7 @@
 */
 int afficheur1,afficheur2,afficheur3,afficheur4,afficheur5,afficheur6,afficheur7,afficheur8;
 
-
+int afficheur(int variable);
 
 main(void)
 {
