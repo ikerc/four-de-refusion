@@ -12,3 +12,12 @@ afficheur6=
 afficheur7=
 afficheur8=
 */
+
+int afficheur(int variable)
+{
+/* if variable == 1 => rafraichir les afficheurs.
+   if variable == 0 => éteindre les afficheurs.
+*/
+ 
+/* Ci-dessous : fonction de rafraichissement des afficheurs.
+}
