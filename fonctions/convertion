@@ -10,7 +10,7 @@ int conversion(int temperature)
 
 if (temperature == 1)
     {
-    adcon0=00000001;
+    adcon0=0b00000001;
     adcon1=0b01001110;  // first bit 1 for Right justified -_- 2d bit 1 for Fosc/4 -_-4 last bits for AN0
     Delay10TCYx(10);				// attente
     ADCON0bits.GO=1;			// lancement conversion 
