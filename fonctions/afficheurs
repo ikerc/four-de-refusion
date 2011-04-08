@@ -19,5 +19,5 @@ int afficheur(int variable)
    if variable == 0 => éteindre les afficheurs.
 */
  
-/* Ci-dessous : fonction de rafraichissement des afficheurs.
+/* Ci-dessous : fonction de rafraichissement des afficheurs. */
 }
