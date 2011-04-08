@@ -68,3 +68,63 @@ int allumerled(int premier, int deuxieme)
 /*Display Test  HexCode=0xXF 
 D11,D10,D9,D8 => 1,1,1,1
 */
+
+
+/* **************************************************************************************
+*****************************************************************************************/
+#include <p18f252.h>
+#include <delays.h>
+#define bp1 PORTAbits.RA5
+#define nand PORTBbits.RB0
+#define Q2 PORTCbits.RC0
+#define Q1 PORTCbits.RC1
+
+int allumerled(int premier, int deuxieme);
+
+void main(void)
+{
+TRISA=0xFF;
+TRISC=0x00;
+
+while(1){
+			Delay10KTCYx(10);
+			if (nand == 0)
+			{
+				Q1=0;
+				Q2=1;
+			}else{
+				Q2=0;
+				Q1=1;
+			}
+		}
+}
+/**Result Q1 allumé Q2 off si appuye inverse **/
+/**************** TEST BP ROUGE ********************/
+#include <p18f252.h>
+#include <delays.h>
+#define bp1 PORTAbits.RA5
+#define nand PORTBbits.RB0
+#define Q2 PORTCbits.RC0
+#define Q1 PORTCbits.RC1
+#define BPRouge PORTBbits.RB2
+
+int allumerled(int premier, int deuxieme);
+
+void main(void)
+{
+TRISA=0xFF;
+TRISC=0x00;
+
+while(1){
+			
+			if (BPRouge == 0)
+			{
+				Q1=0;
+				Q2=1;
+			}else{
+				Q2=0;
+				Q1=1;
+			}
+		}
+}
+/**Result Q2 allumé Q1 off si appuye inverse **/
