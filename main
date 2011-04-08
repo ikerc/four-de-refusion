@@ -1,6 +1,9 @@
 #define temperature 0b01001110  # first bit 1 for Right justified -_- 2d bit 1 for Fosc/4 -_-4 last bits for AN0
 #define rafraichir_afficheur 1
 #define eteindre_afficheur 0
+#define max_DIN
+#define max_LOAD
+#define max_CLK
 
 
 /* *** INITIALISATION DES VARIABLES ***
