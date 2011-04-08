@@ -27,7 +27,7 @@ if (temperature == 1)
 
     afficheur_centaines=rtemp%100;
     afficheur_dizaines=rtemp%10;
-    afficheur_unites=rtemp%1;
+    afficheur_unite=rtemp%1;
 
     return 0;
     }else{
