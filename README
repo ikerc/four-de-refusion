@@ -22,3 +22,42 @@ int triple(int nombre)
     resultat = 3 * nombre;
     return resultat;
 }
+
+
+
+
+/* ***************************************************************************************** */
+/* PROGRAMME DE TEST DE TRANSMISSION DE VARIABLES */
+
+#include <p18f252.h>
+#include <delays.h>
+#define bp1 PORTAbits.RA4
+#define bp2 PORTBbits.RB0
+
+int allumerled(int premier, int deuxieme);
+
+void main(void)
+{
+TRISA=0xFF;
+TRISB=0x01;
+
+while(1){
+			allumerled(bp1,bp2);
+		}
+}
+
+int allumerled(int premier, int deuxieme)
+{
+	if (premier == 0){
+					PORTBbits.RB2=1;
+				 }			
+	if (premier == 1){
+					PORTB=0x00;
+				 }	
+	if (deuxieme == 0){
+					PORTBbits.RB1=1;
+				 }			
+	if (deuxieme == 1){
+					PORTB=0x00;
+				 }			 
+}
