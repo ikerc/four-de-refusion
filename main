@@ -12,14 +12,16 @@ int afficheur(int variable);
 main(void)
 {
 
-autotest() //fonction au démarrage qui permets de tester tous les digits.
+autotest() //fonction au démarrage qui permets de tester tous les digits. (set des variables)
 afficheurs(rafraichir_afficheur)
-afficheur1++;
+// ajouter un delay d'une seconde
 
-acquisition(température)  
+acquisition(température)         // affichage de la température de la pièce.
 afficheurs(rafraichir_afficheur) // affichage de la température de la pièce.
 // ajouter un delay d'une seconde
 afficheur(eteindre_afficheur)
+// ajouter un delay d'une seconde //pour tester que les afficheurs s’éteignent bien
+
     while(1)
     {
     }
