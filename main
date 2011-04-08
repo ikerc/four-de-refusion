@@ -1,4 +1,4 @@
-#include <p18f452.h>
+#include <p18f452i.h>
 #include <delays.h>
 
 #define temperature 1 
