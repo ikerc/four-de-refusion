@@ -38,8 +38,8 @@ int allumerled(int premier, int deuxieme);
 
 void main(void)
 {
-TRISA=0xFF;
-TRISB=0x01;
+TRISA=0xFF;   // PORT A en entrée
+TRISB=0x01;   // PORT B en sortie, sauf RB0 qui est en entrée(RB0) [carte picdem]
 
 while(1){
 			allumerled(bp1,bp2);
