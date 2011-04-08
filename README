@@ -8,3 +8,17 @@ AFFICHEURS (MAX DRIVER)
 
 SONDE DE TEMPERATURE (PT100)
 
+
+
+déclaration d'une fonction dans le main:
+int nomdelafonction(int variable, int variable2);
+
+
+en dessous du main:
+int triple(int nombre)
+{
+    int resultat = 0;
+ 
+    resultat = 3 * nombre;
+    return resultat;
+}
