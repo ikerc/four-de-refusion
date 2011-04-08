@@ -1,14 +1,5 @@
-/*
-acquisition température
-
-paramètres d'entrée : configuration des bits de registre.
+/* fichier à supprimer */
 sortie : 0 à 4096
-*/
-int q = 4.8828e-3 // quantum pour un CAN 10bits 0v-5v
-float resultat;
-int adcon0 = 0b00000001 // 2 fist bits for Fosc/4 [1st bit of temperature too] -_- 3 bits for channel selection 000 = AN0 -_- set bit to 1 for start Conversion -_- last bit is for power UP CAN
-int adcon1 = 0b01001110  # first bit 1 for Right justified -_- 2d bit 1 for Fosc/4 -_-4 last bits for AN0
 
-ADCON0bits.GO_DONE=1;   // lancement de la convertion analogique/numérique
-while(ADCON0bits.GO_DONE); // attente fin de la convertion
+float resultat;
 resultat=(float)ADRES*q;
