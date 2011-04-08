@@ -2,8 +2,7 @@
 conversion:
 converti avec pour paramètre l'entrée de acquisition en affichage.
 
-acquisition(température)
-convertion(acquisition)
+conversion(temperature)
 
 variable : quantum
 variable de sortie globale : afficheur(celui qui affiche la température)
