@@ -1,5 +1,0 @@
-/* fichier à supprimer */
-sortie : 0 à 4096
-
-float resultat;
-resultat=(float)ADRES*q;
