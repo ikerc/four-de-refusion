@@ -128,3 +128,53 @@ while(1){
 		}
 }
 /**Result Q2 allumé Q1 off si appuye inverse **/
+
+
+
+
+/*******************************************
+2011-04-11
+*******************************************
+PROG TEST Q1, Q2, BProuge, AutresBP(nand)
+*******************************************
+
+#include <p18f252.h>
+#include <delays.h>
+#define bp1 PORTAbits.RA5
+#define nand PORTBbits.RB0
+#define Q1 PORTCbits.RC0
+#define Q2 PORTCbits.RC1
+#define BPRouge PORTBbits.RB2
+
+int allumerled(int premier, int deuxieme);
+
+void main(void)
+{
+TRISA=0xFF; // entrée
+TRISB=0xFF; 
+TRISC=0x00; // sortie  RC0 Q2 - RC1 Q1
+
+Q1=0;
+Q2=0;
+
+while(1){
+
+		if (BPRouge == 0)
+			{
+			Q1=1;
+			Q2=0;
+			}
+
+		if (nand == 1)
+			{
+			Q1=0;
+			Q2=1;
+			}
+		else{
+			Q1=0;
+			Q2=0;
+			}
+	}
+}
+
+***************************************************************/
