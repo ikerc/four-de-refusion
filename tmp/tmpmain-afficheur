@@ -1,4 +1,3 @@
-
 /*   MAIN DU COURS D'AUJOURD'HUI  (2011-04-11) */
 
 #include <p18f252.h>
@@ -9,22 +8,20 @@
 #define nand PORTBbits.RB0 // relaché=0 appuyé=1
 #define nand_relache 0
 #define nand_appuye 1
+/*
+Use (nand == nand_appuye) or (nand == nand_relache) to test with nand 
+Don't use (nand == appuye) because you'r testing: (nand == nand_relache) 
+Don't use (nand == relache) because you'r testing: (nand == nand_appuye)
+*/
+/* use (BP* == appuye) to test without nand */
 #define BPRouge PORTBbits.RB2 // relaché=1 appuyé=0
-#define BPRouge_appuye 0
-#define BPRouge_relache 1
 #define BP1 PORTAbits.RA4 // relaché=1 appuyé=0
-#define BP1_appuye 0
-#define BP1_relache 1
 #define BP2 PORTAbits.RA5 
-#define BP2_appuye 0
-#define BP2_relache 1
 #define BP3 PORTAbits.RA2
-#define BP3_appuye 0
-#define BP3_relache 1
 #define BP4 PORTAbits.RA3
-#define BP4_appuye 0
-#define BP4_relache 1
 #define BPJaune PORTAbits.RA1
+#define appuye 0
+#define relache 1
 
 int allumerled(int premier, int deuxieme);
 void putByte(long data);
@@ -38,13 +35,13 @@ TRISA=0xFF; // entrée
 TRISB=0b11100011; // RB3 RB4 RB5 sortie => afficheurs(max)
 TRISC=0x00; // sortie  RC0 Q2 - RC1 Q1
 
-ADCON1=0b11001110;
+ADCON1=0b11001110;  // AN0 Analog, Other are Digital (if not set, AN0 to ANx are analog)
 Q1=0;
 Q2=0;
 
 while(1){
 
-if (BP1 == BP1_appuye)
+if (BP1 == appuye)
 	{	
 		Q1=1;
 		Q2=1;
@@ -164,17 +161,3 @@ void putByte(long data) {
       load=0;
       load=1;
     }
-/*
-    void setup () {
-     
-      maxAll(max7219_reg_scanLimit, 0x07);
-      maxAll(max7219_reg_decodeMode, 0x00); // using an led matrix (not digits)
-      maxAll(max7219_reg_shutdown, 0x01); // not in shutdown mode
-      maxAll(max7219_reg_displayTest, 0x00); // no display test
-       for (e=1; e<=8; e++) { // empty registers, turn all LEDs off
-        maxAll(e,0);
-      }
-      maxAll(max7219_reg_intensity, 0x0f & 0x0f); // the first 0x0f is the value you can set
-                                                      // range: 0x00 to 0x0f
-    }
-*/
